@@ -1152,6 +1152,12 @@ void ShowManageUserScreen() {
     PerformManageUserMenuOption((enManageUserOptions)Choice);
 }
 
+void ResetCurrentUser() {
+    CurrentUser.Username = "";
+    CurrentUser.Password = "";
+    CurrentUser.Permissions = 0;
+    CurrentUser.IsDeletedUser = false;
+}
 void PerformMainMenuOption(enMainMenuOptions Option) {
     system("cls");
     switch (Option)
@@ -1192,6 +1198,7 @@ void PerformMainMenuOption(enMainMenuOptions Option) {
         break;
 
     case enMainMenuOptions::LogoutOption:
+        ResetCurrentUser();
         LoginScreen();
         break;
     }
@@ -1252,13 +1259,13 @@ void LoginScreen() {
         } 
         else {
             LoginFailed = true;
+            ResetCurrentUser();
         }
 
     } while (LoginFailed);
    
     ShowMainMenu();
 }
-
 int main() {
 
     LoginScreen();
