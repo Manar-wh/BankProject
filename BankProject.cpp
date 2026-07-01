@@ -5,8 +5,6 @@
 #include <iomanip>
 #include <cctype>
 
-void ShowTransactionsScreen();
-
 using namespace std;
 
 enum enMainMenuOptions {
@@ -52,6 +50,7 @@ stUser CurrentUser;
 
 void ShowMainMenu();
 void LoginScreen();
+void ShowTransactionsScreen();
 void ShowManageUserScreen();
 void AccessDeniedMessage();
 bool CheckAccessPermission(enPermissionsOptions Permission);
